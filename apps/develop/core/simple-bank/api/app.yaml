@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: simple-bank-service-api
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: simple-bank-service
+  project: simple-bank-service
+  source:
+    helm:
+      valueFiles:
+      - values.yaml
+    path: core/notification-service/api
+    repoURL: https://github.com/tien7668/vt-applications.git
+    targetRevision: develop
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  ignoreDifferences:
+  - group: apps
+    jsonPointers:
+    - /spec/replicas
+    kind: Deployment
