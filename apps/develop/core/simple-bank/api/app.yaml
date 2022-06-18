@@ -7,7 +7,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: simple-bank-service
-  project: simple-bank-service
+  project: default
   source:
     helm:
       valueFiles:
