@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: simple-bank-service-api
+  namespace: argocd
 spec:
   destination:
     server: 'https://kubernetes.default.svc'
@@ -11,7 +12,7 @@ spec:
     helm:
       valueFiles:
       - values.yaml
-    path: core/notification-service/api
+    path: core/simple-bank/api
     repoURL: https://github.com/tien7668/vt-applications.git
     targetRevision: develop
   syncPolicy:
