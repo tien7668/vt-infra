@@ -13,7 +13,7 @@ spec:
       valueFiles:
       - values.yaml
     path: core/simple-bank/api
-    repoURL: https://github.com/tien7668/vt-applications.git
+    repoURL: git@github.com:tien7668/vt-applications.git
     targetRevision: develop
   syncPolicy:
     automated:
