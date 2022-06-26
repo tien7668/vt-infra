@@ -8,7 +8,7 @@ metadata:
     argocd-image-updater.argoproj.io/server.allow-tags: regexp:^main-[0-9a-zA-Z]{7}$
     argocd-image-updater.argoproj.io/server.update-strategy: latest
     argocd-image-updater.argoproj.io/server.helm.image-tag: base-service.server.image.tag
-    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/personal-access-token-for-argocd
+    argocd-image-updater.argoproj.io/write-back-method: git
     
 spec:
   destination:
