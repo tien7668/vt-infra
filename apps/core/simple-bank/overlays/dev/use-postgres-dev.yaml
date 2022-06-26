@@ -1,0 +1,19 @@
+# Source: postgresql/templates/primary/statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: simple-bank-postgresql
+  namespace: "default"
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: postgresql
+          env:
+            # Authentication
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: dev-simple-bank-secrets
+                  key: DB_PASSWORD

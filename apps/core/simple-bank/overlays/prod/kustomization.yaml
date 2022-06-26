@@ -1,0 +1,14 @@
+bases:
+  - ../../base
+
+namePrefix: prod-
+
+commonLabels: 
+  env: prod
+
+# resources:
+#   - external-secrets.yaml
+
+patches: 
+  - use-secrets-prod.yaml
+  - use-postgres-prod.yaml

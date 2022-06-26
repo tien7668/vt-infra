@@ -1,0 +1,6 @@
+region: asia-southeast1
+zones:
+  - asia-southeast1-b
+
+projects:
+  develop: develop-339203

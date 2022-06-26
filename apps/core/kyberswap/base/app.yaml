@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kyberswap-spa
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: server=asia.gcr.io/fast-audio-352608/core/kyberswap-interface
+    argocd-image-updater.argoproj.io/server.allow-tags: regexp:^main-[0-9a-zA-Z]{7}$
+    argocd-image-updater.argoproj.io/server.update-strategy: latest
+    argocd-image-updater.argoproj.io/server.helm.image-tag: base-service.server.image.tag
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/personal-access-token-for-argocd
+    
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default # namespace where final app pods are deployment
+  project: dev-kyberswap-app-project # project name of argo's app project (../app-project.yaml)
+  source:
+    helm:
+      valueFiles:
+      - values.yaml
+    path: core/kyberswap
+    repoURL: https://github.com/tien7668/vt-applications.git
+    targetRevision: develop
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  ignoreDifferences:
+  - group: apps
+    jsonPointers:
+    - /spec/replicas
+    kind: Deployment

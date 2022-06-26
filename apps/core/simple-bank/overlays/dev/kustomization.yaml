@@ -1,0 +1,14 @@
+bases:
+  - ../../base
+
+namePrefix: dev-
+
+commonLabels: 
+  env: dev
+
+# resources:
+#   - external-secrets.yaml
+
+patches: 
+  - use-secrets-dev.yaml
+  - use-postgres-dev.yaml

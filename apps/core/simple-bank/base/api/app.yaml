@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: simple-bank-service-api
+  namespace: argocd
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default # namespace where final app pods are deployment
+  project: simple-bank-service # project name of argo's app project (../app-project.yaml)
+  source:
+    helm:
+      valueFiles:
+      - values.yaml
+    path: core/simple-bank/api
+    repoURL: https://github.com/tien7668/vt-applications.git
+    targetRevision: develop
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  ignoreDifferences:
+  - group: apps
+    jsonPointers:
+    - /spec/replicas
+    kind: Deployment
