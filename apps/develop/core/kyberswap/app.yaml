@@ -14,7 +14,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default # namespace where final app pods are deployment
-  project: dev-kyberswap-app-project # project name of argo's app project (../app-project.yaml)
+  project: kyberswap-app-project # project name of argo's app project (../app-project.yaml)
   source:
     helm:
       valueFiles:
