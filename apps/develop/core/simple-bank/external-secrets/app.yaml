@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: simple-bank-service-external-secrets
+  namespace: argocd
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default # namespace where final app pods are deployment
+  project: simple-bank-service # project name of argo's app project (../app-project.yaml)
+  source:
+    helm:
+      parameters:
+      - name: env.GOOGLE_APPLICATION_CREDENTIALS
+        value: /app/gcp-creds/gcp-creds.json
+      valueFiles:
+      - values.yaml
+    path: charts/kubernetes-external-secrets
+    repoURL: https://github.com/external-secrets/kubernetes-external-secrets.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  ignoreDifferences:
+  - group: apps
+    jsonPointers:
+    - /spec/replicas
+    kind: Deployment
