@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: argocd
 resources:
   - kyberswap
+  - postgresql
