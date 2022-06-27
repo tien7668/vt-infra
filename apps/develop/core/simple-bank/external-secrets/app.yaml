@@ -12,7 +12,7 @@ spec:
     helm:
       parameters:
       - name: env.GOOGLE_APPLICATION_CREDENTIALS
-        value: /gcp-creds/gcp-creds.json
+        value: /app/gcp-creds/gcp-creds.json
       valueFiles:
       - values.yaml
     path: charts/kubernetes-external-secrets
