@@ -13,6 +13,8 @@ spec:
       parameters:
       - name: env.GOOGLE_APPLICATION_CREDENTIALS
         value: /app/gcp-creds/gcp-creds.json
+      - name: filesFromSecret.gcp-creds.mountPath
+        value: /app/gcp-creds
       valueFiles:
       - values.yaml
     path: charts/kubernetes-external-secrets
