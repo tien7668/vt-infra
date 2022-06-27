@@ -1,7 +1,7 @@
 :serapiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: postgres
+  name: simple-bank-service-postgresql
   namespace: argocd
 spec:
   destination:
