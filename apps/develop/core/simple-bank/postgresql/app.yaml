@@ -12,7 +12,18 @@ spec:
     helm:
       parameters:
       - name: global.postgresql.auth.username
-        value: asdasdsadasdasdasdsadsadasdasdsaasdsad
+        value: postgres
+      - name: global.postgresql.auth.database
+        value: simple_bank
+      - name: global.postgresql.auth.existingSecret
+        value: simple-bank-secrets
+      - name: global.postgresql.auth.secretKeys.adminPasswordKey
+        value: DB_PASSWORD
+      - name: global.postgresql.auth.secretKeys.userPasswordKey
+        value: DB_PASSWORD
+      - name: global.postgresql.auth.secretKeys.replicationPasswordKey
+        value: DB_PASSWORD
+      
       valueFiles:
       - values.yaml
     path: bitnami/postgresql
