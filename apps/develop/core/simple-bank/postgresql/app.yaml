@@ -32,7 +32,6 @@ spec:
           secretKeyRef:
             name: *name
             key: DB_PASSWORD
-      
       valueFiles:
       - values.yaml
     path: bitnami/postgresql
