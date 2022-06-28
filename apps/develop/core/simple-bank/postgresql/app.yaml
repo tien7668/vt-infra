@@ -18,20 +18,11 @@ spec:
       - name: global.postgresql.auth.existingSecret
         value: simple-bank-secrets
       - name: global.postgresql.auth.secretKeys.adminPasswordKey
-        valueFrom:
-          secretKeyRef:
-            name: *name
-            key: DB_PASSWORD
+        value: "DB_PASSWORD"
       - name: global.postgresql.auth.secretKeys.userPasswordKey
-        valueFrom:
-          secretKeyRef:
-            name: *name
-            key: DB_PASSWORD
+        value: "DB_PASSWORD"
       - name: global.postgresql.auth.secretKeys.replicationPasswordKey
-        valueFrom:
-          secretKeyRef:
-            name: *name
-            key: DB_PASSWORD
+        value: "DB_PASSWORD"
       valueFiles:
       - values.yaml
     path: bitnami/postgresql
