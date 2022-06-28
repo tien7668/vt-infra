@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - app-project.yaml
   - external-secrets/app.yaml
-  # - external-secrets/external-secrets.yaml
+  - external-secrets/external-secrets.yaml
   - postgresql/app.yaml
   - api/app.yaml
