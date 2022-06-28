@@ -4,5 +4,5 @@ resources:
   - app-project.yaml
   - external-secrets/app.yaml
   - external-secrets/external-secrets.yaml
-  - postgresql/app.yaml
-  - api/app.yaml
+  # - postgresql/app.yaml
+  # - api/app.yaml
