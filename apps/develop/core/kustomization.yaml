@@ -3,4 +3,5 @@ kind: Kustomization
 namespace: argocd
 resources:
   # - kyberswap
-  - simple-bank
+  # - simple-bank
+  - sample-1
