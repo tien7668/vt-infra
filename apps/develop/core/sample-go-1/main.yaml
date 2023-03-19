@@ -16,7 +16,7 @@ metadata:
 spec:
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default # namespace where final app pods are deployment
+    namespace: sample-go-1-project # namespace where final app pods are deployment
   project: sample-go-1-project # project name of argo's app project (../app-project.yaml)
   source:
     helm:
