@@ -4,11 +4,14 @@ metadata:
   name: sample-go-1
   namespace: argocd
   annotations:
+    argocd.argoproj.io/manifest-generate-paths: .
     argocd-image-updater.argoproj.io/image-list: server=asia.gcr.io/fast-audio-352608/core/sample-go-1
     argocd-image-updater.argoproj.io/server.allow-tags: regexp:^main-[0-9a-zA-Z]{7}$
     argocd-image-updater.argoproj.io/server.update-strategy: latest
     argocd-image-updater.argoproj.io/server.helm.image-tag: base-service.server.image.tag
     argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/server.helm.image-name: base-service.server.image.name
+    argocd-image-updater.argoproj.io/server.helm.image-tag: base-service.server.image.tag
     
 spec:
   destination:
